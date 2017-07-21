@@ -74,11 +74,11 @@ if [ "$arch_type" == "aarch64" ] && [ $MemTotal -gt 1048576 ]; then
 elif [ "$arch_type" == "aarch64" ] && [ $MemTotal -lt 1048576 ]; then
     echo 50 > /sys/module/process_reclaim/parameters/pressure_min
     echo 512 > /sys/module/process_reclaim/parameters/per_swap_size
-    echo "18432,23040,27648,32256,55296,80640" > /sys/module/lowmemorykiller/parameters/minfree
-    echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
+    echo "18432,23040,27648,32256,36864,46080" > /sys/module/lowmemorykiller/parameters/minfree
+    echo 53059 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
 else
     echo 50 > /sys/module/process_reclaim/parameters/pressure_min
     echo 512 > /sys/module/process_reclaim/parameters/per_swap_size
-    echo "15360,19200,23040,26880,34415,43737" > /sys/module/lowmemorykiller/parameters/minfree
+    echo "18432,23040,27648,32256,36864,46080" > /sys/module/lowmemorykiller/parameters/minfree
     echo 53059 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
 fi
